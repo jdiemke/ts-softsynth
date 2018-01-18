@@ -1,0 +1,27 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+        "quotemark": [true, "single"],
+        "interface-name": [true, "never-prefix"],
+        "array-type": [true, "generic"],
+        "linebreak-style": [true, "LF"],
+        "typedef": [
+            true, 
+            "call-signature",
+            "arrow-call-signature",
+            "parameter",
+            "arrow-parameter",
+            "property-declaration",
+            "variable-declaration",
+            "member-variable-declaration",
+            "object-destructuring",
+            "array-destructuring"
+        ],
+        "no-bitwise": false
+    },
+    "rulesDirectory": []
+}
