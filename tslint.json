@@ -9,6 +9,7 @@
         "interface-name": [true, "never-prefix"],
         "array-type": [true, "generic"],
         "linebreak-style": [true, "LF"],
+        "no-angle-bracket-type-assertion": false,
         "typedef": [
             true, 
             "call-signature",
