@@ -3,6 +3,10 @@ A software synthesizer written in typescript.
 
 # References
 * http://basicsynth.com/index.php?page=default
+* http://www.analog.com/media/en/technical-documentation/dsp-book/dsp_book_Ch1.pdf
+* https://pdfs.semanticscholar.org/068d/efeda78141718232be06e7e92b292d901164.pdf
+* http://www.hackaudio.com/digital-signal-processing/
+* http://pfister.ee.duke.edu/courses/ece485/dsp.pdf
 * https://padenot.github.io/litsynth/
 * https://conspiracy.hu/articles/8/
 * https://www.youtube.com/watch?v=G2SBjeXEjZo
