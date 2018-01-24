@@ -36,6 +36,14 @@ export class Synthesizer {
         [32 * 2, 255, 32 * 2, 30, 255, 30, 255, 30, 255, 255, 32, 30, 255, 30, 44, 20, 32 * 2, 255, 32 * 2, 30, 64, 52, 76, 30, 255, 255, 32, 30, 255, 30, 44, 20],
     ];
 
+    public getPattern(): Array<Array<number>> {
+        return this.pattern;
+    }
+
+    public getSongPos(): number {
+        return this.songPos;
+    }
+
     private envelope: number;
 
     constructor(sampleRate: number) {
@@ -100,7 +108,8 @@ export class Synthesizer {
     }
 
     private clipSignal(wave: number): number {
-        return Math.min(Math.max(wave, -1), 1);
+        const clip: number = 1.0;
+        return Math.min(Math.max(wave, -clip), clip);
     }
 
     /**

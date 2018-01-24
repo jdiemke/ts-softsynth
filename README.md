@@ -27,3 +27,4 @@ A software synthesizer written in typescript.
 * http://www.drdobbs.com/jvm/music-components-in-java-the-synthesizer/231000557?pgno=2
 * https://codepen.io/gregh/post/recreating-legendary-8-bit-games-music-with-web-audio-api
 * http://www.synthtopia.com/content/2015/05/01/how-to-make-8-bit-music-an-introduction-to-famitracker/
+* https://www.youtube.com/watch?v=Vr1gEf9tpLA
