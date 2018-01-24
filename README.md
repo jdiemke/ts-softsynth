@@ -1,6 +1,9 @@
 # ts-softsynth
 A software synthesizer written in typescript.
 
+# Demo
+https://jdiemke.github.io/ts-softsynth
+
 # References
 * http://basicsynth.com/index.php?page=default
 * http://www.analog.com/media/en/technical-documentation/dsp-book/dsp_book_Ch1.pdf
