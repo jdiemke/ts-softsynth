@@ -12,6 +12,9 @@ https://jdiemke.github.io/ts-softsynth
     * Delay
 
 # References
+* http://folk.ntnu.no/oyvinbra/gdsp/Lesson4tanh.html
+* https://www.youtube.com/channel/UCpKb02FsH4WH4X_2xhIoJ1A
+* http://slideplayer.com/slide/2391016/
 * http://basicsynth.com/index.php?page=default
 * http://www.analog.com/media/en/technical-documentation/dsp-book/dsp_book_Ch1.pdf
 * https://pdfs.semanticscholar.org/068d/efeda78141718232be06e7e92b292d901164.pdf
