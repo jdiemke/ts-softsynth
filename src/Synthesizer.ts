@@ -102,9 +102,14 @@ export class Synthesizer {
                 }
             }
 
-            buffer[i] = this.clipSignal(wave*0.5);
+            buffer[i] = this.clipSignal(this.shapingFunction( wave*0.8,0));
             this.songTime++;
         }
+    }
+
+    // Waveshaper implementation
+    private shapingFunction(input: number, songTime: number): number {
+        return Math.sin(input*input*input * 8.0+songTime*0.075);
     }
 
     private clipSignal(wave: number): number {
