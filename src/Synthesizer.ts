@@ -111,9 +111,10 @@ export class Synthesizer {
 
     private lastOut: number = 0;
 
-/*
- *https://www.quora.com/Whats-the-C-coding-for-a-low-pass-filter
- */
+    /**
+     * https://stackoverflow.com/questions/13882038/implementing-simple-high-and-low-pass-filters-in-c
+     * https://www.quora.com/Whats-the-C-coding-for-a-low-pass-filter
+     */
     public lowPassFrequency(input: number): number {
         let CUTOFF = 400;
         let SAMPLE_RATE = this.sampleRate;
@@ -121,7 +122,7 @@ export class Synthesizer {
         let dt = 1.0 / SAMPLE_RATE;
         let alpha = dt / (RC + dt);
 
-        this.lastOut = this.lastOut + (alpha * (input - this.lastOut));
+        this.lastOut += (alpha * (input - this.lastOut));
         return this.lastOut;
     }
 
