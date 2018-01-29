@@ -12,6 +12,7 @@ https://jdiemke.github.io/ts-softsynth
     * Delay
 
 # References
+* https://ccrma.stanford.edu/~jos/filters/
 * http://folk.ntnu.no/oyvinbra/gdsp/Lesson4tanh.html
 * https://www.youtube.com/channel/UCpKb02FsH4WH4X_2xhIoJ1A
 * http://slideplayer.com/slide/2391016/
