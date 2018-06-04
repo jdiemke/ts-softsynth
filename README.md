@@ -1,4 +1,7 @@
 # ts-softsynth
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/jdiemke/ts-softsynth.svg)](https://greenkeeper.io/)
+
 A software synthesizer written in typescript.
 
 # Demo
