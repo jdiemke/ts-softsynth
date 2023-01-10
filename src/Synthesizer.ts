@@ -103,7 +103,7 @@ export class Synthesizer {
                 }
             }
 
-            buffer[i] = this.clipSignal(this.shapingFunction(this.lowPassFrequency(wave * 0.8), this.songTime));
+            buffer[i] =this.clipSignal(wave*0.4);//this.clipSignal(this.shapingFunction(this.lowPassFrequency(wave * 0.8), this.songTime));
             this.songTime++;
         }
 

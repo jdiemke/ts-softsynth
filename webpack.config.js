@@ -1,41 +1,43 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var BabiliPlugin = require('babili-webpack-plugin');
-var path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
-module.exports = {
-    entry: {
-        application: './src/Application.ts'
-    },
-    output: {
-        filename: '[name].bundle.js',
-        path: path.join(__dirname, 'dist')
-    },
-    resolve: {
-        extensions: ['.ts']
-    },
-    module: {
-        rules: [
-            {
-                test: /\.ts$/,
-                loader: 'awesome-typescript-loader',
-                options: {
-                    configFileName: './src/tsconfig.json'
-                }
-            },
-            {
-                test: /\.html$/,
-                loader: 'html-loader'
-            },
-            {
-                test: /\.(png|jpg|bmp|mp3)$/,
-                loader: 'file-loader'
-            }
+module.exports = [
+    {
+        mode: 'production',
+        entry: './src/Application.ts',
+        output: {
+            filename: '[name].bundle.js',
+            path: path.join(__dirname, 'dist')
+        },
+        resolve: {
+            extensions: ['.ts', '.js']
+        },
+        module: {
+            rules: [
+                { test: /\.ts$/, loader: 'ts-loader' },
+                { test: /\.bmp$/, type: 'asset/resource' }
+            ]
+        },
+        plugins: [
+            new HtmlWebpackPlugin({
+                template: './src/index.html'
+            })
         ]
     },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: './src/index.html'
-        }),
-        // new BabiliPlugin()
-    ]
-}
+    {
+        mode: 'production',
+        entry: './src/synthesizer.audio-worklet.ts',
+        output: {
+            filename: 'synthesizer.audio-worklet.js',
+            path: path.join(__dirname, 'dist'),
+        },
+        resolve: {
+            extensions: ['.ts', '.js']
+        },
+        module: {
+            rules: [
+                { test: /\.ts$/, loader: 'ts-loader' }
+            ]
+        }
+    }
+];
