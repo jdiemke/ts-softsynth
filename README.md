@@ -4,7 +4,7 @@ A software synthesizer written in typescript.
 # Demo
 https://jdiemke.github.io/ts-softsynth
 
-# Backlock
+# Backlog
 * Waveshaper
 * ADSR Envelope Editor
 * Oscillator Selection

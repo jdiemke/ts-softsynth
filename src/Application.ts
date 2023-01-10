@@ -1,4 +1,5 @@
 import { Synthesizer } from './Synthesizer';
+import font from './assets/Green-Font.bmp';
 
 class Application {
 
@@ -16,7 +17,7 @@ class Application {
         const canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById('synth');
         const context: CanvasRenderingContext2D = canvas.getContext('2d');
 
-        const audioContext: AudioContext = new AudioContext();
+        const audioContext: AudioContext = new AudioContext(/*{sampleRate: 8000}*/);
 
         let scriptProcessorNode: ScriptProcessorNode;
         scriptProcessorNode = audioContext.createScriptProcessor(Application.BUFFER_SIZE, 1, 1);
@@ -28,14 +29,24 @@ class Application {
             this.synthesizer.getSamples(outputBuffer);
         };
 
-        this.analyser = audioContext.createAnalyser();
-
-        this.analyser.fftSize = 2048;
-        const bufferLength: number = this.analyser.frequencyBinCount;
-        this.dataArray = new Uint8Array(bufferLength);
-
-        scriptProcessorNode.connect(this.analyser);
-        this.analyser.connect(audioContext.destination);
+        audioContext.audioWorklet.addModule('synthesizer.audio-worklet.js').then(() => {
+            const whiteNoiseNode = new AudioWorkletNode(
+                audioContext,
+                "synthesizer-processor"
+              );
+              whiteNoiseNode.connect(audioContext.destination);
+              
+      
+              this.analyser = audioContext.createAnalyser();
+      
+              this.analyser.fftSize = 2048;
+              const bufferLength: number = this.analyser.frequencyBinCount;
+              this.dataArray = new Uint8Array(bufferLength);
+      
+              whiteNoiseNode.connect(this.analyser);
+              this.analyser.connect(audioContext.destination);
+        });
+      
 
         window.onkeydown = (e: KeyboardEvent): any => {
             const code: number = e.keyCode ? e.keyCode : e.which;
@@ -133,7 +144,8 @@ class Application {
             this.image2.onload = (ev2: Event): any => {
                 requestAnimationFrame(() => this.draw(context));
             };
-            this.image2.src = require('./assets/Green-Font.bmp');
+            
+            this.image2.src =font;
         };
         this.image.src = require('./assets/Knob.bmp');
     }
@@ -141,7 +153,7 @@ class Application {
     public draw(context: CanvasRenderingContext2D): void {
         context.fillStyle = '#333333';
         context.fillRect(0, 0, 640, 480);
-        this.drawOscilloscop(context, 200, 50);
+        this.analyser && this.drawOscilloscop(context, 200, 50);
         const pos: number = Math.floor(Date.now() * 0.02) % 63;
         context.drawImage(this.image, pos * 32, 0, 32, 32, 240, 0, 32, 32);
         context.fillStyle = '#b3c13f';
@@ -207,7 +219,7 @@ class Application {
 
 
         if ((Date.now() - this.lastTime) > 80) {
-            this.analyser.getByteTimeDomainData(this.dataArray);
+            this.analyser && this.analyser.getByteTimeDomainData(this.dataArray);
             this.lastTime = Date.now();
         }
 
@@ -241,5 +253,5 @@ class Application {
     }
 
 }
-
-new Application().main();
+const button = document.getElementById('button');
+button.onclick = () => new Application().main();
