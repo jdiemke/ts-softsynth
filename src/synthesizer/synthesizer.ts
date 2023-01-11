@@ -1,18 +1,4 @@
-// https://noisehack.com/generate-noise-web-audio-api/
-// https://noisehack.com/custom-audio-effects-javascript-web-audio-api/
-// https://noisehack.com/how-to-build-supersaw-synth-web-audio-api/
-// https://noisehack.com/build-music-visualizer-web-audio-api/
-// https://noisehack.com/how-to-build-monotron-synth-web-audio-api/
-// https://davidwalsh.name/web-audio-api
-// https://codepen.io/gregh/post/recreating-legendary-8-bit-games-music-with-web-audio-api
-// https://developer.mozilla.org/en-US/docs/Games/Techniques/Audio_for_Web_Games
-// https://www.html5rocks.com/en/tutorials/webaudio/intro/
-class Instrument {
-    public on: boolean;
-    public currentPhase: number;
-    public envelope: number;
-    public phaseIncrement: number;
-}
+import { Instrument } from "./instrument";
 
 export class Synthesizer {
 

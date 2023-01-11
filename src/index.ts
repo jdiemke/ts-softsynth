@@ -1,4 +1,4 @@
-import { Synthesizer } from './synthesizer';
+import { Synthesizer } from './synthesizer/synthesizer';
 import font from './assets/Green-Font.bmp';
 
 class Application {
