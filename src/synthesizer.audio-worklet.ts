@@ -1,4 +1,4 @@
-import { Synthesizer } from "./Synthesizer";
+import { Synthesizer } from "./synthesizer";
 
 class SynthesizerAudioWorklet extends AudioWorkletProcessor {
 
@@ -11,7 +11,7 @@ class SynthesizerAudioWorklet extends AudioWorkletProcessor {
 
     public process(inputs: Float32Array[][], outputs: Float32Array[][], parameters: Record<string, Float32Array>): boolean {
         const output = outputs[0];
-        
+
         output.forEach((channel) => {
             this.synthesizer.getSamples(channel);
         });
