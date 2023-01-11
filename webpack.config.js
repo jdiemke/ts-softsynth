@@ -3,8 +3,9 @@ const path = require('path');
 
 module.exports = [
     {
+        devtool: 'source-map',
         mode: 'production',
-        entry: './src/Application.ts',
+        entry: './src/index.ts',
         output: {
             filename: '[name].bundle.js',
             path: path.join(__dirname, 'dist')

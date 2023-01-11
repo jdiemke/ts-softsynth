@@ -1,4 +1,4 @@
-import { Synthesizer } from './Synthesizer';
+import { Synthesizer } from './synthesizer';
 import font from './assets/Green-Font.bmp';
 
 class Application {
@@ -28,6 +28,7 @@ class Application {
             const outputBuffer: Float32Array = audioProcessingEvent.outputBuffer.getChannelData(0);
             this.synthesizer.getSamples(outputBuffer);
         };
+
 
         audioContext.audioWorklet.addModule('synthesizer.audio-worklet.js').then(() => {
             const whiteNoiseNode = new AudioWorkletNode(
